@@ -1,13 +1,15 @@
-﻿
-using AbstractFactory.Factories;
-using AbstractFactory.Products;
+﻿using AbstractFactory.CaveLevel;
+using AbstractFactory.Common;
+using AbstractFactory.HauntedHouseLevel;
 
-// Using the abstract factory pattern
-AbstractFactory.Factories.AbstractFactory abstractFactory = new ConcreteFactory();
+void SetupEnvironment(LevelElementFactory levelFactory)
+{ 
+    var enemy = levelFactory.CreateEnemy();
+    var weapon = levelFactory.CreateWeapon();
+    var powerUp = levelFactory.CreatePowerUp();
 
-Product1 product1 = abstractFactory.CreateProduct1();
-Product2 product2 = abstractFactory.CreateProduct2();
+    //..
+}
 
-// Not using the abstract factory pattern
-ConcreteProduct1 concreteProduct1 = new();
-ConcreteProduct2 concreteProduct2 = new();
+SetupEnvironment(new CaveLevelElementFactory());
+SetupEnvironment(new HauntedHouseLevelElementFactory());
