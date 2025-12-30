@@ -29,3 +29,14 @@ director.ConstructProduct();
 product = builder.Build();
 
 Console.WriteLine(product);
+
+// Modelo clássico ---------------
+// Sem uso do Director
+
+builder = new SimpleProductBuilder();
+builder.BuildName();
+builder.BuildDescription();
+product = builder.Build();
+Console.WriteLine(product);
+
+// --------------------------------
